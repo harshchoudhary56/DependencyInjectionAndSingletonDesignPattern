@@ -1,0 +1,16 @@
+class Test {
+    private static Test test = new Test();
+    private Test() {}
+    public static Test getInstance() {
+        return test;
+    } 
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Test t1 = Test.getInstance();
+        Test t2 = Test.getInstance();
+        Test t3 = Test.getInstance();
+        System.out.println(t1.hashCode() + " " + t2.hashCode() + " " + t3.hashCode());
+    }
+}

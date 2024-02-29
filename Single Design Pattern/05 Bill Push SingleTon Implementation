@@ -1,0 +1,17 @@
+class Test {
+    private Test() {}
+    private static class InnerClass {
+        private static Test test = new Test();
+    }
+    public static Test getInstance() {
+        return InnerClass.test;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Test t1 = Test.getInstance();
+        Test t2 = Test.getInstance();
+        System.out.println(t1.hashCode() + " " + t2.hashCode());
+    }
+}

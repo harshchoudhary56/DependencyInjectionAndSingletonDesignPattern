@@ -1,0 +1,16 @@
+class Test {
+    private static Test test;
+    private Test() {}
+    public static synchronized Test getInstance() {
+        if(test == null) test = new Test();
+        return test;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Test t1 = Test.getInstance();
+        Test t2 = Test.getInstance();
+        System.out.println(t1.hashCode() + " " + t2.hashCode());
+    }
+}
